@@ -117,40 +117,25 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"css.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+})({"test.js":[function(require,module,exports) {
 var string = "\n.skin * {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.skin *::before,\n.skin *::after {\n  box-sizing: border-box;\n}\n.skin {\n  position: relative;\n  background-color: #ffcb00;\n  min-height:50vh;\n}\n.nose {\n  position: relative;\n  border: 10px solid red;\n  border-color: #000 transparent transparent;\n  border-bottom: none;\n  width: 0px;\n  height: 0px;\n  left: 50%;\n  top: 100px;\n  margin-left: -10px;\n  z-index: 10;\n}\n.yuan {\n  position: absolute;\n  width: 20px;\n  height: 6px;\n  top: -16px;\n  margin-left: -10px;\n  border-radius: 10px 10px 0 0;\n  background-color: black;\n}\n.eye {\n  width: 42px;\n  height: 42px;\n  border: 2px solid #000;\n  position: absolute;\n  left: 50%;\n  top: 70px;\n  margin-left: -21px;\n  background-color: #303031;\n  border-radius: 50%;\n}\n.eye::before {\n  content: \"\";\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 2px solid #000;\n  background-color: #fff;\n  border-radius: 50%;\n  position: relative;\n  left: 4px;\n  animation: eyeMove 1s infinite;\n}\n.eye.left {\n  transform: translateX(-100px);\n}\n.eye.right {\n  transform: translateX(100px);\n}\n.mouth {\n  width: 150px;\n  height: 150px;\n  position: absolute;\n  left: 50%;\n  top: 110px;\n  margin-left: -75px;\n}\n.mouth .up .lip {\n  width: 72px;\n  height: 30px;\n  border: 3px solid #000;\n  border-top-color: transparent;\n  position: relative;\n  position: absolute;\n  right: 50%;\n  margin-right: -50px;\n  z-index: 1;\n  background-color: #ffcb00;\n}\n.mouth .up .lip.left {\n  border-radius: 0 0 0 50px;\n  border-left-color: transparent;\n  transform: rotate(-15deg) translateX(-25px);\n  left: 50%;\n  margin-left: -50px;\n}\n.mouth .up .lip.right {\n  border-radius: 0 0 50px 0px;\n  border-right-color: transparent;\n  transform: rotate(15deg) translateX(25px);\n  right: 50%;\n  margin-right: -50px;\n}\n.mouth .up .lip::before {\n  position: absolute;\n  content: \"\";\n  display: block;\n  width: 10px;\n  height: 34px;\n  bottom: 0px;\n  background-color: #ffcb00;\n  bottom: 0px;\n}\n.mouth .up .lip.left::before {\n  right: -5px;\n}\n\n.mouth .up .lip.right::before {\n  left: -5px;\n}\n.mouth .down {\n  width: 130px;\n  height: 140px;\n  border: 3px solid #000;\n  position: absolute;\n  left: 50%;\n  margin-left: -65px;\n  bottom: -10px;\n  background-color: #cc4143;\n  border-bottom-left-radius: 280px 590px;\n  border-bottom-right-radius: 280px 590px;\n  overflow: hidden;\n}\n.mouth .down .yuan1 {\n  width: 140px;\n  height: 140px;\n  position: absolute;\n  left: 50%;\n  margin-left: -70px;\n  top: 20px;\n  background-color: #dd666a;\n  border-top-left-radius: 300px;\n  border-top-right-radius: 300px;\n}\n.skin .face {\n  width: 64px;\n  height: 64px;\n  border: 2px solid #000;\n  position: absolute;\n  left: 50%;\n  margin-left: -32px;\n  top: 160px;\n  z-index: 3;\n  border-radius: 50%;\n  background-color: #ff5140;\n}\n.skin .face.left {\n  transform: translateX(-120px);\n}\n.skin .face.right {\n  transform: translateX(120px);\n}\n@keyframes eyeMove {\n  0%,\n  100% {\n    top: 2px;\n    left: 2px;\n  }\n  33% {\n    top: 2;\n    left: 15px;\n  }\n  66% {\n    top: 10px;\n    left: 10px;\n  }\n}\n@keyframes handMove {\n  0%,\n  46%,\n  54%,\n  100% {\n    top: 400px;\n  }\n  50% {\n    top: 425px;\n  }\n}\n@keyframes box-rotate {\n  0%,\n  90%,\n  100% {\n    -webkit-transform: rotate(0deg);\n  }\n  40%,\n  50% {\n    -webkit-transform: rotate(360deg);\n  }\n}\n\n";
-var _default = string;
-exports.default = _default;
-},{}],"test.js":[function(require,module,exports) {
-"use strict";
-
-var _css = _interopRequireDefault(require("./css.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var n = 1;
-demo.innerText = _css.default.substr(0, n);
-demo2.innerHTML = _css.default.substr(0, n);
+demo.innerText = string.substr(0, n);
+demo2.innerHTML = string.substr(0, n);
 console.log(n);
 var time = 50;
 
 var run = function run() {
   n += 1;
 
-  if (n > _css.default.length) {
+  if (n > string.length) {
     window.clearInterval(id);
     return;
   }
 
-  console.log(n + ":" + _css.default.substring(0, n));
-  demo.innerText = _css.default.substr(0, n);
-  demo2.innerHTML = _css.default.substr(0, n);
+  console.log(n + ":" + string.substring(0, n));
+  demo.innerText = string.substr(0, n);
+  demo2.innerHTML = string.substr(0, n);
   demo.scrollTop = demo.scrollHeight;
 };
 
@@ -189,7 +174,7 @@ btnFast.onclick = function () {
   time = 0;
   id = play();
 };
-},{"./css.js":"css.js"}],"C:/Users/maomu/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"C:/Users/maomu/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +202,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50376" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54213" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
